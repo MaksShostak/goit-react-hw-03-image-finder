@@ -14,7 +14,7 @@ export class App extends Component {
     items: [],
     isOpen: false,
     loading: false,
-    selected: '',
+    selected: {},
     notFaund: false,
     error: false,
   };

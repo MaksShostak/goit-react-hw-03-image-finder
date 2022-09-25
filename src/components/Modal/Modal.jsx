@@ -27,8 +27,8 @@ export class Modal extends Component {
 
     return (
       <div className={style.overlay} onClick={this.handleBackDropClose}>
-        <div className={style.modalc}>
-          <img src={modalimg} alt="" />
+        <div className={style.modal}>
+          <img src={modalimg.largeImageURL} alt={modalimg.tags} />
         </div>
       </div>
     );
@@ -37,7 +37,10 @@ export class Modal extends Component {
 
 Modal.propTypes = {
   modalClose: PropTypes.func.isRequired,
-  modalimg: PropTypes.string.isRequired,
+  modalimg: PropTypes.shape({
+    largeImageURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Modal;

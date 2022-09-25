@@ -8,7 +8,7 @@ const ImageGalleryItem = ({ responceObj, openModal }) => {
     <li
       className={style.galleryItem}
       onClick={() => {
-        openModal(responceObj.largeImageURL);
+        openModal(responceObj);
       }}
     >
       <img src={responceObj.webformatURL} alt={responceObj.tags} />
@@ -18,7 +18,6 @@ const ImageGalleryItem = ({ responceObj, openModal }) => {
 
 ImageGalleryItem.propTypes = {
   responceObj: PropTypes.shape({
-    largeImageURL: PropTypes.string.isRequired,
     webformatURL: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,
   }).isRequired,
