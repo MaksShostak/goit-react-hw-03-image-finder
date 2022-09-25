@@ -1,6 +1,6 @@
 import { Loader } from './Loader/Loader';
 import { Component } from 'react';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import ButtonBootstrap from './Button/Button';
 import Searchbar from './Searchbar/Searchbar';
 import { getPixabayPhoto } from '../services/Api/Api';
@@ -56,25 +56,25 @@ export class App extends Component {
     }
   }
 
-  heandleSubmit = e => {
-    e.preventDefault();
-    if (e.target.elements.input.value.trim() === '') {
-      return Notify.warning(`Please enter a search query`, {
-        backOverlay: true,
-        timeout: 1500,
-        position: 'center-center',
-        fontSize: '34px',
-        width: '500px',
-        clickToClose: true,
-      });
-    }
+  heandleSubmit = inputValue => {
+    // e.preventDefault();
+    // if (inputValue.trim() === '') {
+    //   return Notify.warning(`Please enter a search query`, {
+    //     backOverlay: true,
+    //     timeout: 1500,
+    //     position: 'center-center',
+    //     fontSize: '34px',
+    //     width: '500px',
+    //     clickToClose: true,
+    //   });
+    // }
     this.setState({
       page: 1,
-      input: e.target.elements.input.value.trim(),
+      input: inputValue.trim(),
       items: [],
       notFaund: false,
     });
-    e.target.reset();
+    // e.target.reset();
   };
 
   openModal = component => {

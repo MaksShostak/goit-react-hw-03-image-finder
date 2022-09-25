@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import style from './Modal.module.css';
+
 export class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
@@ -24,9 +26,9 @@ export class Modal extends Component {
     const { modalimg } = this.props;
 
     return (
-      <div className="overlayka" onClick={this.handleBackDropClose}>
-        <div className="modalca">
-          <img className="modalimg" src={modalimg} alt="" />
+      <div className={style.overlay} onClick={this.handleBackDropClose}>
+        <div className={style.modalc}>
+          <img src={modalimg} alt="" />
         </div>
       </div>
     );

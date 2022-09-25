@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import style from './ImageGalleryItem.module.css';
+
 const ImageGalleryItem = ({ responceObj, openModal }) => {
   return (
     <li
-      className="gallery-item"
+      className={style.galleryItem}
       onClick={() => {
         openModal(responceObj.largeImageURL);
       }}
