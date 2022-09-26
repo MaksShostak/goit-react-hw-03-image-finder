@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import style from './Searchbar.module.css';
 
 class Searchbar extends Component {

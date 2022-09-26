@@ -19,6 +19,15 @@ export class App extends Component {
     error: false,
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    // console.log('prevState.page', prevState.page);
+    if (
+      prevState.page !== this.state.page ||
+      prevState.input !== this.state.input
+    ) {
+      this.addPixabayPhoto(this.state);
+    }
+  }
   addPixabayPhoto = async value => {
     try {
       this.setState({
@@ -45,16 +54,6 @@ export class App extends Component {
       page: prevState.page + 1,
     }));
   };
-
-  componentDidUpdate(prevProps, prevState) {
-    // console.log('prevState.page', prevState.page);
-    if (
-      prevState.page !== this.state.page ||
-      prevState.input !== this.state.input
-    ) {
-      this.addPixabayPhoto(this.state);
-    }
-  }
 
   heandleSubmit = inputValue => {
     // e.preventDefault();
