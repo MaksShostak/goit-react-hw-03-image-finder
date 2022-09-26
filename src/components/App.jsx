@@ -4,8 +4,9 @@ import { Component } from 'react';
 import ButtonBootstrap from './Button/Button';
 import Searchbar from './Searchbar/Searchbar';
 import { getPixabayPhoto } from '../services/Api/Api';
-import Modal from './Modal/Modal';
-import ImageGallery from './ImageGallery/ImageGallery';
+import Modal from './Modal';
+// import { ImageGallery } from './ImageGallery/ImageGallery';
+import { ImageGallery, ImageGalleryItem } from './ImageGallery';
 
 export class App extends Component {
   state = {
@@ -35,8 +36,6 @@ export class App extends Component {
         top: scrollLength,
         behavior: 'smooth',
       });
-    } else if (prevState.input !== this.state.input) {
-      this.setState({ items: [] });
     }
   }
 
@@ -79,6 +78,10 @@ export class App extends Component {
     //     clickToClose: true,
     //   });
     // }
+    if (inputValue === this.state.input) {
+      this.setState({ items: [] });
+    }
+
     this.setState({
       page: 1,
       input: inputValue.trim(),

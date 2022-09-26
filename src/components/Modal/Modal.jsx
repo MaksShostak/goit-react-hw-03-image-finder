@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import style from './Modal.module.css';
 
-export class Modal extends Component {
+class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
   }

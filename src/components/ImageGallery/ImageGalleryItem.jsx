@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import style from './ImageGalleryItem.module.css';
 
-const ImageGalleryItem = ({ responceObj, openModal }) => {
+export const ImageGalleryItem = ({ responceObj, openModal }) => {
   return (
     <li
       className={style.galleryItem}
@@ -23,5 +23,3 @@ ImageGalleryItem.propTypes = {
   }).isRequired,
   openModal: PropTypes.func.isRequired,
 };
-
-export default ImageGalleryItem;

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ImageGalleryItem from './ImageGalleryItem';
+import { ImageGalleryItem } from './ImageGalleryItem';
 
 import style from './ImageGallery.module.css';
 
-const ImageGallery = ({ value, modalOpen }) => {
+export const ImageGallery = ({ value, modalOpen }) => {
   return (
     <ul className={style.gallery}>
       {value.map(picture => (
@@ -24,5 +24,3 @@ ImageGallery.propTypes = {
   ),
   modalOpen: PropTypes.func.isRequired,
 };
-
-export default ImageGallery;
