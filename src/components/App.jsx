@@ -22,6 +22,7 @@ export class App extends Component {
     const scrollLength = this.state.items.length * 260;
     return scrollLength;
   }
+
   componentDidUpdate(prevProps, prevState, scrollLength) {
     // console.log('prevState.page', prevState.page);
     if (
@@ -34,6 +35,8 @@ export class App extends Component {
         top: scrollLength,
         behavior: 'smooth',
       });
+    } else if (prevState.input !== this.state.input) {
+      this.setState({ items: [] });
     }
   }
 
