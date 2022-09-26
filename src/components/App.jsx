@@ -6,7 +6,7 @@ import Searchbar from './Searchbar/Searchbar';
 import { getPixabayPhoto } from '../services/Api/Api';
 import Modal from './Modal';
 // import { ImageGallery } from './ImageGallery/ImageGallery';
-import { ImageGallery, ImageGalleryItem } from './ImageGallery';
+import { ImageGallery } from './ImageGallery';
 
 export class App extends Component {
   state = {
