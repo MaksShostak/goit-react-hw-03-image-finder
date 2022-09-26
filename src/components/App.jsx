@@ -18,16 +18,25 @@ export class App extends Component {
     notFaund: false,
     error: false,
   };
-
-  componentDidUpdate(prevProps, prevState) {
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    const scrollLength = this.state.items.length * 260;
+    return scrollLength;
+  }
+  componentDidUpdate(prevProps, prevState, scrollLength) {
     // console.log('prevState.page', prevState.page);
     if (
       prevState.page !== this.state.page ||
       prevState.input !== this.state.input
     ) {
       this.addPixabayPhoto(this.state);
+    } else if (prevState.items !== this.state.items) {
+      window.scrollTo({
+        top: scrollLength,
+        behavior: 'smooth',
+      });
     }
   }
+
   addPixabayPhoto = async value => {
     try {
       this.setState({
