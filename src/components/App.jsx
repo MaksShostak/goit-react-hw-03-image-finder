@@ -78,8 +78,8 @@ export class App extends Component {
     //     clickToClose: true,
     //   });
     // }
-    if (inputValue === this.state.input) {
-      this.setState({ items: [] });
+    if (inputValue === this.state.input && this.state.page === 1) {
+      return;
     }
 
     this.setState({
