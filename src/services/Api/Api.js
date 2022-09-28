@@ -9,7 +9,7 @@ axios.defaults.params = {
   per_page: 12,
 };
 
-export const getPixabayPhoto = async value => {
-  const { data } = await axios.get(`?q=${value.input}&page=${value.page}`);
+export const getPixabayPhoto = async (page, input) => {
+  const { data } = await axios.get(`?q=${input}&page=${page}`);
   return data.hits;
 };

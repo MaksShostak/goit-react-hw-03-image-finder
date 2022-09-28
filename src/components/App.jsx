@@ -25,12 +25,11 @@ export class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, scrollLength) {
-    // console.log('prevState.page', prevState.page);
     if (
       prevState.page !== this.state.page ||
       prevState.input !== this.state.input
     ) {
-      this.addPixabayPhoto(this.state);
+      this.addPixabayPhoto();
     } else if (prevState.items !== this.state.items) {
       window.scrollTo({
         top: scrollLength,
@@ -39,13 +38,13 @@ export class App extends Component {
     }
   }
 
-  addPixabayPhoto = async value => {
+  addPixabayPhoto = async () => {
+    const { page, input } = this.state;
     try {
       this.setState({
         loading: true,
       });
-
-      const image = await getPixabayPhoto(value);
+      const image = await getPixabayPhoto(page, input);
       if (!image.length) {
         this.setState({ notFaund: true });
       } else {
@@ -55,8 +54,10 @@ export class App extends Component {
       }
       this.setState({ loading: false });
     } catch (error) {
-      this.setState({ error: true });
+      this.setState({ error: true, loading: false });
       console.error(error);
+    } finally {
+      this.setState({ loading: false });
     }
   };
 
@@ -67,17 +68,6 @@ export class App extends Component {
   };
 
   heandleSubmit = inputValue => {
-    // e.preventDefault();
-    // if (inputValue.trim() === '') {
-    //   return Notify.warning(`Please enter a search query`, {
-    //     backOverlay: true,
-    //     timeout: 1500,
-    //     position: 'center-center',
-    //     fontSize: '34px',
-    //     width: '500px',
-    //     clickToClose: true,
-    //   });
-    // }
     if (inputValue === this.state.input && this.state.page === 1) {
       return;
     }
@@ -88,7 +78,6 @@ export class App extends Component {
       items: [],
       notFaund: false,
     });
-    // e.target.reset();
   };
 
   openModal = component => {
